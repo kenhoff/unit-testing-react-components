@@ -1,0 +1,3 @@
+It's pretty easy to write unit tests for pure JavaScript functions, but how the heck to do you do user interaction testing for React components? In "Unit Testing React Components", you'll learn how to render your React components into a synthetic DOM, how to query the synthetic DOM for automated testing, and how to stub/spy methods and components inside your tests.
+
+Ken Hoff is a full-stack JavaScript developer and consultant based out of Boulder, CO. More about him and his work at https://hoff.tech/. He likes making dumb fun web stuff, building/streaming/playing games, and adventuring the country in his old VW bus.
