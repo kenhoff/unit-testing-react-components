@@ -6,5 +6,5 @@ var ReactDOM = require("react-dom");
 var TodoListReactComponent = require("./TodoListReactComponent.jsx")
 
 ReactDOM.render((
-	<TodoListReactComponent></TodoListReactComponent>
+    <TodoListReactComponent></TodoListReactComponent>
 ), document.getElementById('app'));

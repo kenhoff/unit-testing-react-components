@@ -6,7 +6,16 @@ var TodoListReactComponent = React.createClass({
 	getInitialState: function() {
 		return {todos: [], todoInput: ""};
 	},
-	render: function () {
+	componentDidMount: function() {
+		$.ajax("http://api.openweathermap.org/data/2.5/weather?zip=80206,us&appid=d7080b0bfa9ef49bad4a168e685ed2f0").done((data) => {
+			if (data.main.temp < 288.706) { // because kelvin!
+				let newTodos = this.state.todos.slice()
+				newTodos.push("Bring a jacket!")
+				this.setState({todos: newTodos});
+			}
+		})
+	},
+	render: function() {
 		return (
 			<div>
 				<h1>Your todos:</h1>
@@ -24,13 +33,13 @@ var TodoListReactComponent = React.createClass({
 						)
 					})}
 				</ul>
-				<form onSubmit={(e) => {
+				<form ref="newTodoForm" onSubmit={(e) => {
 					e.preventDefault();
 					var newTodos = this.state.todos.slice();
 					newTodos.push(this.state.todoInput);
 					this.setState({todos: newTodos, todoInput: ""});
 				}}>
-					<input onChange={(e) => {
+					<input ref="newTodoField" onChange={(e) => {
 						this.setState({todoInput: e.target.value});
 					}} value={this.state.todoInput}></input>
 					<input type="submit" value="Add Todo"></input>
